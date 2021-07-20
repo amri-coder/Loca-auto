@@ -4,9 +4,18 @@ namespace App\Entity;
 
 use App\Repository\UserRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
+use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Component\Validator\Constraints\NotNull;
+use Symfony\Component\Validator\Constraints\NotNullValidator;
+use  Symfony\Component\Validator\Constraints\Regex;
+use Symfony\Component\Validator\Constraints\RegexValidator;
 
 /**
  * @ORM\Entity(repositoryClass=UserRepository::class)
+ * @UniqueEntity(
+ * fields={"lastname","firstname", "birthDate"},
+ * message = "Ce utilisateur existe déjà !")
  */
 class User
 {
@@ -19,11 +28,19 @@ class User
 
     /**
      * @ORM\Column(type="string", length=50)
+     * @Assert\NotBlank
+     * @Assert\Regex(
+     * pattern="/^[a-zA-ZÀ-ÿ\-\ ]*$/",
+     * message="Le nom doit contenir uniquement des lettres")
      */
     private $lastName;
 
     /**
      * @ORM\Column(type="string", length=50)
+     * @Assert\NotBlank
+     * @Assert\Regex(
+     * pattern="/^[a-zA-ZÀ-ÿ\-| ]*$/",
+     * message="Le prénom doit contenir uniquement des lettres")
      */
     private $firstName;
 
@@ -39,6 +56,9 @@ class User
 
     /**
      * @ORM\Column(type="string", length=50)
+     * @Assert\NotBlank
+     * @Assert\Email(
+     * message="Email '{{value}}') pas valide .")
      */
     private $email;
 

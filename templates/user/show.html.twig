@@ -6,57 +6,57 @@
 {% block body %}
 	<h1>User</h1>
 
-	<table class="table">
+	<table class="table table-success table-striped">
 		<tbody>
 			<tr>
-				<th>Id</th>
+				<th class="text-primary">Id</th>
 				<td>{{ user.id }}</td>
 			</tr>
 			<tr>
-				<th>Nom :
+				<th class="text-primary">Nom :
 				</th>
 				<td>{{ user.lastName }}</td>
 			</tr>
 			<tr>
-				<th>Prénom :
+				<th class="text-primary">Prénom :
 				</th>
 				<td>{{ user.firstName }}</td>
 			</tr>
 			<tr>
-				<th>Date de naissance :
+				<th class="text-primary">Date de naissance :
 				</th>
 				<td>{{ user.birthDate ? user.birthDate|date('Y-m-d') : '' }}</td>
 			</tr>
 			<tr>
-				<th>Numéro de téléphone :
+				<th class="text-primary">Numéro de téléphone :
 				</th>
 				<td>{{ user.phoneNumber }}</td>
 			</tr>
 			<tr>
-				<th>E-mail</th>
+				<th class="text-primary">E-mail</th>
 				<td>{{ user.email }}</td>
 			</tr>
 			<tr>
-				<th>Password</th>
+				<th class="text-primary">Password</th>
 				<td>{{ user.password }}</td>
 			</tr>
 			<tr>
-				<th>Adresse :
+				<th class="text-primary">Adresse :
 				</th>
 				<td>{{ user.address }}</td>
 			</tr>
 			<tr>
-				<th>Ville :
+				<th class="text-primary">Ville :
 				</th>
 				<td>{{ user.city }}</td>
 			</tr>
 			<tr>
-				<th>Code postale :
+				<th class="text-primary">Code postale :
 				</th>
 				<td>{{ user.ZIPcode }}</td>
 			</tr>
 			<tr>
-				<th>Pays :
+				<th class="text-primary">Pays :
 				</th>
 				<td>{{ user.country }}</td>
 			</tr>

@@ -1,31 +1,32 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}User index
+{% block title %}
+	User index
 {% endblock %}
 
 {% block body %}
-	<h1>User index</h1>
+	<h1>Liste des utilisateurs</h1>
 
-	<table class="table">
-		<thead>
-			<tr>
+	<table class="table table-success table-striped">
+		<thead class="text-primary">
+			<tr class="text-center">
 				<th>Id</th>
 				<th>Nom</th>
 				<th>Prénom</th>
 				<th>Date de naissance</th>
-				<th>Numéro de tél</th>
+				<th>Téléphone</th>
 				<th>E-mail</th>
 				<th>Password</th>
 				<th>Adresse</th>
 				<th>Ville</th>
 				<th>Code postale</th>
 				<th>Pays</th>
-				<th>actions</th>
+				<th>Actions</th>
 			</tr>
 		</thead>
 		<tbody>
 			{% for user in users %}
-				<tr>
+				<tr class="text-center">
 					<td>{{ user.id }}</td>
 					<td>{{ user.lastName }}</td>
 					<td>{{ user.firstName }}</td>
