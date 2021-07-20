@@ -10,7 +10,7 @@ use Doctrine\Migrations\AbstractMigration;
 /**
  * Auto-generated Migration: Please modify to your needs!
  */
-final class Version20210720082929 extends AbstractMigration
+final class Version20210720144322 extends AbstractMigration
 {
     public function getDescription(): string
     {
@@ -28,7 +28,7 @@ final class Version20210720082929 extends AbstractMigration
         $this->addSql('CREATE TABLE rental (id INT AUTO_INCREMENT NOT NULL, users_id INT NOT NULL, car_id INT NOT NULL, car_rental_date DATE NOT NULL, car_rental_return_date DATE NOT NULL, INDEX IDX_1619C27D67B3B43D (users_id), INDEX IDX_1619C27DC3C6F69F (car_id), PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB');
         $this->addSql('CREATE TABLE role (id INT AUTO_INCREMENT NOT NULL, status VARCHAR(50) NOT NULL, PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB');
         $this->addSql('CREATE TABLE seat (id INT AUTO_INCREMENT NOT NULL, seats INT NOT NULL, PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB');
-        $this->addSql('CREATE TABLE user (id INT AUTO_INCREMENT NOT NULL, role_id INT NOT NULL, last_name VARCHAR(50) NOT NULL, first_name VARCHAR(50) NOT NULL, birth_date DATE NOT NULL, phone_number VARCHAR(14) NOT NULL, email VARCHAR(50) NOT NULL, password VARCHAR(50) NOT NULL, address VARCHAR(150) NOT NULL, city VARCHAR(25) NOT NULL, zipcode VARCHAR(20) NOT NULL, country VARCHAR(50) NOT NULL, INDEX IDX_8D93D649D60322AC (role_id), PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB');
+        $this->addSql('CREATE TABLE user (id INT AUTO_INCREMENT NOT NULL, role_id INT NOT NULL, email VARCHAR(180) NOT NULL, roles JSON NOT NULL, password VARCHAR(255) NOT NULL, last_name VARCHAR(50) NOT NULL, first_name VARCHAR(50) NOT NULL, birth_date DATE NOT NULL, phone_number VARCHAR(50) NOT NULL, address VARCHAR(150) NOT NULL, city VARCHAR(50) NOT NULL, zipcode VARCHAR(50) NOT NULL, country VARCHAR(150) NOT NULL, UNIQUE INDEX UNIQ_8D93D649E7927C74 (email), INDEX IDX_8D93D649D60322AC (role_id), PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB');
         $this->addSql('ALTER TABLE cars ADD CONSTRAINT FK_95C71D14E9EEC0C7 FOREIGN KEY (brands_id) REFERENCES brands (id)');
         $this->addSql('ALTER TABLE cars ADD CONSTRAINT FK_95C71D14C6B26989 FOREIGN KEY (gears_id) REFERENCES gears (id)');
         $this->addSql('ALTER TABLE cars ADD CONSTRAINT FK_95C71D14743D8A7 FOREIGN KEY (engines_id) REFERENCES engines (id)');
